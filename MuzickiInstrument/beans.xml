@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	
+	<bean id="instrument1" class="com.vladancupric.Instrument">
+		<constructor-arg name="naziv" type="String"
+			value="truba">
+		</constructor-arg>
+		<constructor-arg name="tip" type="TipInstrumenta"
+			value="DUVACKI">
+		</constructor-arg>
+	</bean>
+
+
+
+	<bean id="instrument2" class="com.vladancupric.Instrument">
+		<constructor-arg name="naziv" type="String"
+			value="klavir">
+		</constructor-arg>
+		<constructor-arg name="tip" type="TipInstrumenta"
+			value="ZICANI">
+		</constructor-arg>
+	</bean>
+	<bean id="instrument3" class="com.vladancupric.Instrument">
+		<constructor-arg name="naziv" type="String"
+			value="bubanj">
+		</constructor-arg>
+		<constructor-arg name="tip" type="TipInstrumenta"
+			value="UDARALJKE">
+		</constructor-arg>
+	</bean>
+	
+	<bean id="muzicar1" class="com.vladancupric.Muzicar">
+		
+	
+	<constructor-arg name="ime" type="String" value="Vladimir Tadic">
+		
+	</constructor-arg>
+	
+	<property name="instrument" ref="instrument1"></property>
+	</bean>
+	
+	<bean id="muzicar3" class="com.vladancupric.Muzicar">
+		
+	
+	<constructor-arg name="ime" type="String" value="Vladimir Tadic">
+		
+	</constructor-arg>
+	
+	<property name="instrument" ref="instrument3"></property>
+		</bean>
+
+	<bean id="muzicar2" class="com.vladancupric.Muzicar">
+		
+	
+	<constructor-arg name="ime" type="String" value="Dragan Petrovic">
+		
+	</constructor-arg>
+	
+	<property name="instrument" ref="instrument2"></property>
+	</bean>
+	
+	<bean id="orkestar" class="com.vladancupric.Orkestar">
+		<constructor-arg name="naziv" type="String"
+			value="Beogradska Filharmonija">
+		</constructor-arg>
+		
+		
+		<constructor-arg >
+			<list>
+				<ref bean="muzicar1" />
+				<ref bean="muzicar2" />
+				<ref bean="muzicar3" />
+			</list>
+		</constructor-arg>
+	</bean>
+</beans>
